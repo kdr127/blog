@@ -1,12 +1,14 @@
-import Head from "next/head";
-import Link from "next/link";
 import { useState } from "react";
 import { getCategoryDetails, getCategorySlugs, getPostList } from "@/lib/posts";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
-import LoadMore from "@/components/LoadMore";
-import FeaturedImage from "@/components/FeaturedImage";
+
+import Head from "next/head";
+import Link from "next/link";
+
 import Date from "@/components/Date";
+import FeaturedImage from "@/components/FeaturedImage";
+import LoadMore from "@/components/LoadMore";
+import SiteFooter from "@/components/SiteFooter";
+import SiteHeader from "@/components/SiteHeader";
 
 export async function getStaticPaths() {
   const categories = await getCategorySlugs();

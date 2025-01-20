@@ -1,8 +1,10 @@
-import Head from "next/head";
+import { getPostSlugs, getSinglePost } from "@/lib/posts";
+
 import Date from "@/components/Date";
+import Head from "next/head";
+
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import { getPostSlugs, getSinglePost } from "@/lib/posts";
 
 export async function getStaticProps({ params }) {
   const postData = await getSinglePost(params.postSlug);

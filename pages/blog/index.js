@@ -1,12 +1,14 @@
+import { useState } from "react";
+import { getPostList } from "@/lib/posts";
+
 import Head from "next/head";
 import Link from "next/link";
-import { useState } from "react";
-import SiteHeader from "@/components/SiteHeader";
-import FeaturedImage from "@/components/FeaturedImage";
-import SiteFooter from "@/components/SiteFooter";
+
 import Date from "@/components/Date";
+import FeaturedImage from "@/components/FeaturedImage";
 import LoadMore from "@/components/LoadMore";
-import { getPostList } from "@/lib/posts";
+import SiteFooter from "@/components/SiteFooter";
+import SiteHeader from "@/components/SiteHeader";
 
 export async function getStaticProps() {
   const allPosts = await getPostList();
