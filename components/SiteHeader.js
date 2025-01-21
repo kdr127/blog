@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from "next/link";
+import Image from "next/image";
 
 export default function SiteHeader({ className }) {
   return (
@@ -8,9 +8,10 @@ export default function SiteHeader({ className }) {
     >
       <div className="logo-area">
         <Link href="/" className="flex justify-center">
-          <Image src="/hype.svg" alt="hypedigital" width="140" height="100" />
+          <Image src="/boss.svg" alt="boss" width="100" height="100" />
         </Link>
       </div>
+
       <nav className="text-slate-100">
         <ul className="flex justify-center [&>li>a]:px-3 [&>li>a]:py-2 [&>li>a:hover]:text-yellow-400 [&>li>a]:transition text-xl">
           <li>

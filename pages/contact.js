@@ -1,12 +1,14 @@
-import Head from 'next/head';
-import SiteHeader from '@/components/SiteHeader';
-import SiteFooter from '@/components/SiteFooter';
-import { useState } from 'react';
+import { useState } from "react";
+
+import Head from "next/head";
+
+import SiteFooter from "@/components/SiteFooter";
+import SiteHeader from "@/components/SiteHeader";
 
 export default function Contact() {
   const [submitStatus, setSubmitStatus] = useState(false);
-  const [responseMessage, setResponseMessage] = useState('');
-  const [alertColor, setAlertColor] = useState('bg-green-500');
+  const [responseMessage, setResponseMessage] = useState("");
+  const [alertColor, setAlertColor] = useState("bg-green-500");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -19,10 +21,10 @@ export default function Contact() {
 
     const jsonData = JSON.stringify(data);
 
-    const response = await fetch('/api/form', {
-      method: 'POST',
+    const response = await fetch("/api/form", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: jsonData,
     });
@@ -34,9 +36,9 @@ export default function Contact() {
     setResponseMessage(result.data);
 
     if (!response.ok) {
-      setAlertColor('bg-red-500');
+      setAlertColor("bg-red-500");
     } else {
-      setAlertColor('bg-green-500');
+      setAlertColor("bg-green-500");
     }
   };
 
@@ -45,14 +47,17 @@ export default function Contact() {
       <Head>
         <title>Contact Us</title>
       </Head>
+
       <section className="bg-slate-700">
         <SiteHeader className="header-contact" />
       </section>
+
       <section>
         <div className="container mx-auto lg:max-w-4xl">
           <h1 className="text-4xl text-center text-slate-700 py-8">
             Contact Us
           </h1>
+
           <form className="contact-form" onSubmit={handleSubmit}>
             <label htmlFor="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName" />
@@ -65,6 +70,7 @@ export default function Contact() {
 
             <button type="submit">Absenden</button>
           </form>
+
           {submitStatus ? (
             <SubmissionAlert
               message={responseMessage}

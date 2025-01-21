@@ -35,7 +35,7 @@ export default function BlogHome({ allPosts }) {
             <SiteHeader className="header-blog-home z-10 relative" />
           </div>
 
-          <h1 className="text-6xl text-center text-slate-100 relative z-10 py-8">
+          <h1 className="text-6xl text-center text-slate-100 relative z-10 py-4 mt-32">
             BLOG
           </h1>
 
@@ -62,7 +62,7 @@ export default function BlogHome({ allPosts }) {
                       {post.title}
                     </Link>
                   </h2>
-                  <div className="py-4">
+                  <div className="pb-4">
                     Published on <Date dateString={post.date} />
                   </div>
                   <div

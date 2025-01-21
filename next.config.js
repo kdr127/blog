@@ -1,11 +1,13 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   reactStrictMode: true,
   images: {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "wp.hypedigital.de",
+        // #VAR
+        hostname: "wp.kksen.de",
         port: "",
         pathname: "/**",
       },

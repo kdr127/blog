@@ -9,8 +9,9 @@ import SiteFooter from "@/components/SiteFooter";
 export async function getStaticProps({ params }) {
   const postData = await getSinglePost(params.postSlug);
 
+  // #VAR
   let featuredImageUrl =
-    "https://wp.hypedigital.de/wp-content/uploads/2025/01/img3-scaled.jpg";
+    "https://wp.kksen.de/wp-content/uploads/img9-scaled.jpg";
 
   if (postData.featuredImage) {
     featuredImageUrl =
@@ -68,12 +69,12 @@ export default function Post({ postData, featuredImageUrl }) {
         >
           <div className="absolute inset-0 bg-slate-900 opacity-40">
             <div className="container mx-auto h-full flex flex-col justify-center lg:max-w-4xl">
-              <h1 className="text-6xl text-center text-slate-100 relative z-10 py-4 mt-8">
+              <h1 className="text-6xl text-center text-slate-100 relative z-10 py-4 mt-10">
                 {postData.title}
               </h1>
 
               <div className="pb-4 text-slate-100 z-10">
-                Posted by kdr, last updated on{" "}
+                Posted by kdr, last updated on {/* // CHECK */}
                 <Date dateString={postData.modified} />
               </div>
 

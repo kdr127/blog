@@ -1,14 +1,15 @@
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from "next/link";
+import Image from "next/image";
 
 export default function FeaturedImage({ post }) {
-  let img = '';
+  let img = "";
 
+  // #VAR
   const defaultFeaturedImage =
-    'https://wp.hypedigital.de/wp-content/uploads/2025/01/img2-scaled.jpg';
+    "https://wp.kksen.de/wp-content/uploads/img3-scaled.jpg";
 
-  const defaultWidth = '600';
-  const defaultHeight = '400';
+  const defaultWidth = "300";
+  const defaultHeight = "300";
 
   if (post.featuredImage) {
     let size = post.featuredImage.node.mediaDetails.sizes[0];
