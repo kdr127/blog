@@ -2,6 +2,7 @@ import { getComments } from "@/lib/comments";
 import { getPostSlugs, getSinglePost } from "@/lib/posts";
 
 import Head from "next/head";
+import Image from "next/image";
 
 import CommentForm from "@/components/CommentForm";
 import Date from "@/components/Date";
@@ -117,12 +118,12 @@ export default function Post({
             {comments.nodes.map((comment) => (
               <li key={comment.id} className="pb-4 border-b">
                 <div className="comment-header flex justify-start items-center">
-                  <div className="py-4">
-                    <img
+                  <div className="py-4 max-w-12 mr-4">
+                    <Image
                       src={comment.author.node.avatar.url}
+                      alt="placeholder"
                       width={comment.author.node.avatar.width}
                       height={comment.author.node.avatar.height}
-                      className="rounded-full max-w-[50px] mr-4"
                     />
                   </div>
                   <div>

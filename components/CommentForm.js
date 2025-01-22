@@ -33,8 +33,6 @@ export default function CommentForm({ postId }) {
 
     const result = await response.json();
 
-    console.log(result);
-
     setSubmitStatus(true);
     setResponseMessage(result.message);
 
