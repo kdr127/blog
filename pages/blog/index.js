@@ -50,7 +50,7 @@ export default function BlogHome({ allPosts }) {
           <ul>
             {posts.nodes.map((post) => (
               <li key={post.slug} className="grid grid-cols-5 gap-4 mb-4">
-                <div className="col-span-2">
+                <div className="col-span-2 h-64 w-64">
                   <FeaturedImage post={post} />
                 </div>
                 <div className="col-span-3">

@@ -1,12 +1,12 @@
-import { getPostList } from '@/lib/posts';
-import { useState } from 'react';
+import { useState } from "react";
+import { getPostList } from "@/lib/posts";
 
 export default function LoadMore({ posts, setPosts, taxonomy = null }) {
-  const [buttonText, setButtonText] = useState('Load more posts');
+  const [buttonText, setButtonText] = useState("Load more posts");
   const [buttonDisabled, setButtonDisabled] = useState(false);
 
   const handleOnclick = async (event) => {
-    setButtonText('Loading...');
+    setButtonText("Loading...");
     setButtonDisabled(true);
 
     const morePosts = await getPostList(posts.pageInfo.endCursor, taxonomy);
@@ -26,10 +26,10 @@ export default function LoadMore({ posts, setPosts, taxonomy = null }) {
     setPosts(updatedPosts);
 
     if (morePosts.pageInfo.hasNextPage) {
-      setButtonText('Load more posts');
+      setButtonText("Load more posts");
       setButtonDisabled(false);
     } else {
-      setButtonText('No more posts to load');
+      setButtonText("No more posts to load");
       setButtonDisabled(true);
     }
   };
@@ -40,7 +40,7 @@ export default function LoadMore({ posts, setPosts, taxonomy = null }) {
       onClick={handleOnclick}
       disabled={buttonDisabled}
     >
-      {posts.pageInfo.hasNextPage ? buttonText : 'No more posts to load'}
+      {posts.pageInfo.hasNextPage ? buttonText : "No more posts to load"}
     </button>
   );
 }

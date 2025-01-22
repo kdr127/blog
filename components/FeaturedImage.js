@@ -4,15 +4,15 @@ import Image from "next/image";
 export default function FeaturedImage({ post }) {
   let img = "";
 
-  // #VAR
+  //TODO secret
   const defaultFeaturedImage =
     "https://wp.kksen.de/wp-content/uploads/img3-scaled.jpg";
-
   const defaultWidth = "300";
   const defaultHeight = "300";
 
   if (post.featuredImage) {
     let size = post.featuredImage.node.mediaDetails.sizes[0];
+
     img = {
       src: size.sourceUrl,
       width: size.width,

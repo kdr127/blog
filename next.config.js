@@ -6,8 +6,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        // #VAR
-        hostname: "wp.kksen.de",
+        hostname: "wp.kksen.de", //TODO secret
         port: "",
         pathname: "/**",
       },
