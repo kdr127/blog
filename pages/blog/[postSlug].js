@@ -119,6 +119,7 @@ export default function Post({
               <li key={comment.id} className="pb-4 border-b">
                 <div className="comment-header flex justify-start items-center">
                   <div className="py-4 max-w-12 mr-4">
+                    {/* src="https://wp.kksen.de/wp-content/uploads/user_icon_001-scaled.jpg" */}
                     <Image
                       src={comment.author.node.avatar.url}
                       alt="placeholder"
