@@ -1,5 +1,3 @@
-import { errorToJSON } from "next/dist/server/render";
-
 export default async function handler(req, res) {
   let slug = req.query.slug;
   let path = "";
@@ -21,6 +19,7 @@ export default async function handler(req, res) {
     await res.revalidate(path);
     return res.json({ revalidated: true });
   } catch (err) {
-    return res.status(500).send(err.message); //TODO check errorToJSON next function
+    //TODO check errorToJSON next function
+    return res.status(500).send(err.message);
   }
 }

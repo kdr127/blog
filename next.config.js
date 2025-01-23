@@ -1,8 +1,13 @@
 /** @type {import('next').NextConfig} */
+require("dotenv").config({ path: ".env.local" });
 
 // TODO: secret
 const nextConfig = {
   reactStrictMode: true,
+  env: {
+    WORDPRESS_AUTH_REFRESH_TOKEN: process.env.WORDPRESS_AUTH_REFRESH_TOKEN,
+    REVALIDATION_SECRET: process.env.REVALIDATION_SECRET,
+  },
   images: {
     remotePatterns: [
       {
