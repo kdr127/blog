@@ -1,29 +1,3 @@
-// export default async function handler(req, res) {
-//   let slug = req.query.slug;
-//   let path = "";
-
-//   if (req.query.type === "post") {
-//     path = "/blog/" + slug;
-//   } else if (req.query.type === "page") {
-//     path = "/" + slug;
-//   } else if (req.query.type === "home") {
-//     // dann kanns ja nur noch die blog index sein weisch
-//     path = "/blog";
-//   }
-
-//   if (req.query.secret !== process.env.REVALIDATION_SECRET) {
-//     return res.status(401).json({ message: "Invalid token" });
-//   }
-
-//   try {
-//     await res.revalidate(path);
-//     return res.json({ revalidated: true });
-//   } catch (err) {
-//     //TODO check errorToJSON next function
-//     return res.status(500).send(err.message);
-//   }
-// }
-
 export default async function handler(req, res) {
   const secret = process.env.REVALIDATION_SECRET;
 
@@ -37,10 +11,27 @@ export default async function handler(req, res) {
 
     console.log("Revalidation request received:", req.body);
 
+    if (!slug || !type) {
+      return res
+        .status(400)
+        .json({ error: "Missing required fields: slug or type." });
+    }
+
+    // Revalidate the specific page based on type
     if (type === "post") {
+      // Revalidate the individual post page
       await res.revalidate(`/blog/${slug}`);
+
+      // Revalidate the blog index page
+      await res.revalidate("/blog");
     } else if (type === "page") {
+      // Revalidate a static page
       await res.revalidate(`/${slug}`);
+    } else if (type === "home") {
+      // Revalidate the blog index page
+      await res.revalidate("/blog");
+    } else {
+      return res.status(400).json({ error: "Invalid type specified." });
     }
 
     res.status(200).json({ message: "Revalidation successful!" });
